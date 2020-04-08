@@ -1,1 +1,5 @@
 @import url(../blocks/form-auth/form-auth.css);
+@import url(../blocks/user-info/user-info.css);
+@import url(../blocks/service__extra/service__extra.css);
+@import url(../blocks/submit-area/submit-area.css);
+@import url(../blocks/btns/btns.css);

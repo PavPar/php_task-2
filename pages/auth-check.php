@@ -9,7 +9,6 @@ if(array_key_exists('auth__clear',$_SESSION)){
 }else{
     echo "<a href=","../index.php",">На главную</a>","<br>";
     die("Возникла ошибка");
-    header("Location:pages/index.php");
     exit();
 }
 ?>
