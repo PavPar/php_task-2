@@ -22,11 +22,38 @@ $bill_fields = array(
     "car_time-hold"
 );
 
-@car_marks{
-    "car_mark-peugeot" => "Peugeot",
-    "car_mark-lada" => "Lada Priora ",
-    "car_mark-nissan" => "Nissan",
-}
+$car_marks = array(
+    "service_type-prokat" => array(
+        "car_mark-peugeot" => "Peugeot",
+        "car_mark-lada" => "Lada Priora ",
+        "car_mark-nissan" => "Nissan"
+    ),
+    "service_type-sale" => array(
+        "car_mark-сitroen" => "Citroen",
+        "car_mark-skoda" => "Skoda",
+        "car_mark-lexus" => "Lexus"
+    ),
+    "service_type-lizing" => array(
+        "car_mark-kia" => "Kia",
+        "car_mark-honda" => "Honda",
+        "car_mark-mazda" => "Mazda"
+    )
+);
+
+$car_extra = array(
+    "service_type-prokat" => array(
+        "car_extra-benzin" => "Бензин",
+        "car_extra-tires" => "Шины",
+    ),
+    "service_type-sale" => array(
+        "car_extra-jojo" => "Полировка",
+        "car_extra-saloon" => "Чистка салона"
+    ),
+    "service_type-lizing" => array(
+        "car_extra-benzin" => "Бензин",
+        "car_extra-saloon" => "Чистка салона"
+    )
+);
 
 function checkFieldValue($field)
 {
