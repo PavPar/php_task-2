@@ -75,7 +75,7 @@
                                                     <div style="margin-left:22px; margin-top:13px; ">
 
                                                         <div>
-                                                            <?php CalculatePrice()?>
+                                                            <?php GetTotalPrice()?>
                                                         </div>
                                                         <br><br><br><br>
 
@@ -97,8 +97,13 @@
 
 
                                                     <div class="submit-area">
-                                                        <input type="submit" value="Отправить по почте">
-                                                        <input type="submit" value="Скачать файл">
+                                                        <form action="basket-email.php" mehod="post">
+                                                            <input type="submit" value="Отправить по почте">
+                                                        </form>
+                                                        <form action="basket-file.php" method="post">
+                                                            <input type="submit" value="Скачать файл">
+                                                        </form>
+
                                                         <?php ?>
                                                     </div>
                                                 </td>

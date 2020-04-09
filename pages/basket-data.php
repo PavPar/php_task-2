@@ -23,14 +23,17 @@ function CalculatePrice(){
     if(array_key_exists("car_time-hold",$order)){
         $totalPrice*=$order["car_time-hold"];
     }
-    echo "Итого : ".$totalPrice;
+    return "Итого : ".$totalPrice;
 }
 
-function ouputValExtraService($key,$arr){
+function GetTotalPrice(){
+    echo CalculatePrice();
+}
+
+function ouputValExtraService($key,$arr,$sep){
     global $order;
     if(array_key_exists($key,$arr)){
-        echo '- '.getName($order[$key]).' - '.GetPrice($order[$key]);
-        echo '<br>';
+        return '- '.getName($order[$key]).' - '.GetPrice($order[$key]).$sep;
     }
 }
 function GetPrice($key){
@@ -58,12 +61,12 @@ function Output(){
     echo 'Дополнительные услуги : ';
     echo '<br>';
     foreach($order as &$key){
-        ouputValExtraService($key,$service_fields_extra);
+        echo ouputValExtraService($key,$service_fields_extra,'<br>');
     }
     echo 'Предворительная подготовка : ';
     echo '<br>';
     foreach($order as &$key){
-        ouputValExtraService($key,$car_fields_extra);
+        echo ouputValExtraService($key,$car_fields_extra,'<br>');
     }
     if(array_key_exists("car_time-paper",$order)){
         echo '<div style="margin-left:6px; margin-top:2px; "><img
@@ -81,7 +84,48 @@ function Output(){
 }
 }
 
-function OutputText(){
-    
+function OutputFile(){
+    $my_file = 'order.txt';
+    $handle = fopen($my_file, 'w');
+    global $order;
+    global $service_fields_extra;
+    global $car_fields_extra;
+    $result = 
+    "Имя : ".$order['user_name']
+    . "\n"
+    . "Email: ".$order['user_email']
+    . "\n"    
+    . "Телефон : ".$order['user_phone']
+    . "\n"
+    . "Тип услуги : ".getName($order['service_type'])." - ".GetPrice($order['service_type'])
+    . "\n"
+    . "Марка машины : ".getName($order['car_mark'])." - ".GetPrice($order['car_mark'])
+    . "\n"   
+    . "Дополнительные услуги : "
+    . "\n";
+
+    foreach($order as &$key){
+        $result= $result . ouputValExtraService($key,$service_fields_extra,"\n");
+    }
+    $result= $result . "Предворительная подготовка : "
+    . "\n";
+    foreach($order as &$key){
+        $result= $result . ouputValExtraService($key,$car_fields_extra,"\n");
+    }
+    if(array_key_exists("car_time-paper",$order)){
+        $result= $result . "Дополнительно : "
+        . "\n"
+        . "Ускоренное заполнение"." - ".GetPrice($order['car_time-paper']);
+    }
+    if(array_key_exists("car_time-hold",$order)){
+        $result= $result . "Время аренды/лизинга : ".$order["car_time-hold"]
+        . "\n";
+    }
+    $result= $result . CalculatePrice();
+    fwrite($handle , $result);
+    return $result;
 }
+OutputFile();
+
+
 ?>
