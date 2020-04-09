@@ -1,6 +1,6 @@
 <?php
-// error_reporting(0);
-// ini_set('display_errors', 0);
+error_reporting(0);
+ini_set('display_errors', 0);
 session_start();
 include("field-names.php");
 
@@ -18,7 +18,7 @@ function createFlag($key,$val){
 
 function createField($key,$val){
     echo '<label for="'.$key.'">'.$val;
-    echo '<input type= "number" name="car_time"." value="'.$key.'" id="'.$key.'">';
+    echo '<input min=1 type= "number" name="'.$key.'" value="'.$key.'" id="'.$key.'">';
     echo '</label>';
 }
 

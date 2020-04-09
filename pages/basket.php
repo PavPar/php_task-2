@@ -5,6 +5,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <link href="../css/style.css" rel="stylesheet" type="text/css">
     <link href="../css/index.css" rel="stylesheet" type="text/css">
+    <?php include("auth-check.php");?>
+    <?php include("basket-data.php");?>
 </head>
 
 <body topmargin="0" bottommargin="0" rightmargin="0" leftmargin="0" background="../images/back_main.gif">
@@ -57,11 +59,8 @@
                                                 <td valign="top" height="232" width="248">
                                                     <div style="margin-left:6px; margin-top:2px; "><img
                                                             src="../images/hl.gif"></div>
-                                                    <div style="margin-left:6px; margin-top:7px; "><img
-                                                            src="../images/1_w2.gif"></div>
                                                     <div>
-                                                        1
-                                                        <?php ?>
+                                                        <?php  Output()?>
                                                     </div>
 
 
@@ -76,8 +75,7 @@
                                                     <div style="margin-left:22px; margin-top:13px; ">
 
                                                         <div>
-                                                            2
-                                                            <?php ?>
+                                                            <?php CalculatePrice()?>
                                                         </div>
                                                         <br><br><br><br>
 
@@ -97,7 +95,7 @@
                                                     </div>
                                                     </div>
 
-                                                
+
                                                     <div class="submit-area">
                                                         <input type="submit" value="Отправить по почте">
                                                         <input type="submit" value="Скачать файл">
