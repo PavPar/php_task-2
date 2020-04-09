@@ -1,12 +1,16 @@
+<?php
+ session_start();
+?>
+<?php include("auth-check.php");?>
+<?php include("basket-data.php");?>
+<!DOCTYPE html>
 <html>
-
 <head>
     <title>Работа</title>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <link href="../css/style.css" rel="stylesheet" type="text/css">
     <link href="../css/index.css" rel="stylesheet" type="text/css">
-    <?php include("auth-check.php");?>
-    <?php include("basket-data.php");?>
+   
 </head>
 
 <body topmargin="0" bottommargin="0" rightmargin="0" leftmargin="0" background="../images/back_main.gif">

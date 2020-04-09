@@ -1,4 +1,7 @@
-﻿<html>
+<?php
+ session_start();
+?>
+<html>
 
 <head>
     <title>Работа</title>
