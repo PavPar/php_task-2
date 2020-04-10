@@ -1,16 +1,14 @@
-<?php
- session_start();
-?>
 <?php include("auth-check.php");?>
 <?php include("basket-data.php");?>
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Работа</title>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <link href="../css/style.css" rel="stylesheet" type="text/css">
     <link href="../css/index.css" rel="stylesheet" type="text/css">
-   
+
 </head>
 
 <body topmargin="0" bottommargin="0" rightmargin="0" leftmargin="0" background="../images/back_main.gif">
@@ -91,8 +89,8 @@
                                                     <div style="margin-left:22px; margin-top:9px; ">
 
                                                         <div>
-                                                            3
-                                                            <?php ?>
+
+
                                                         </div>
 
 
@@ -108,7 +106,7 @@
                                                             <input type="submit" value="Скачать файл">
                                                         </form>
 
-                                                        <?php ?>
+
                                                     </div>
                                                 </td>
                                             </tr>
@@ -132,7 +130,12 @@
                     <a href="#"><img src="../images/p3.gif" border="0"></a>
                     <img src="../images/spacer.gif" width="149" height="9">
                     <a href="index-5.php"><img src="../images/copyright.gif" border="0"></a>
+                    <form action="logout.php" method="post">
+                        <input type="submit" value="Сменить пользователя">
+                    </form>
+
                 </div>
+
             </td>
         </tr>
 

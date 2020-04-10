@@ -4,9 +4,9 @@ include("prices.php");
 include("field-names.php");
 
 
-if(isset($_SESSION['order_fields']) && isset($_SESSION['bill_fields'])){
-   
-
+if(!isset($_SESSION['order_fields']) || !isset($_SESSION['bill_fields'])){
+    exit(header("Location:./order.php"));  
+}
 $order_fields = $_SESSION['order_fields'];
 $bill_fields = $_SESSION['bill_fields'];
 $order = array_merge($order_fields,$bill_fields);
@@ -82,7 +82,7 @@ function Output(){
         echo '<br>';
     }
 }
-}
+
 
 function OutputFile(){
     $my_file = 'order.txt';

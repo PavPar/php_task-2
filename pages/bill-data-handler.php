@@ -14,8 +14,6 @@ foreach ($bill_fields as $key) {
     }
 }
 
-print_r($GatheredData);
-
 $_SESSION["bill_fields"] = $GatheredData;
 
-header("Location:basket.php");
+exit(header("Location:basket.php"));

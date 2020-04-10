@@ -19,7 +19,6 @@ $prices = array(
     "car_extra-tires" => 100,
     "car_extra-jojo" => 100,
     "car_extra-saloon" => 50,
-    "car_time-paper" => "x2"
 );
 ?>
 

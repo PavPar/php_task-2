@@ -8,9 +8,13 @@ if ( ! session_id() ) {
     }
 include("field-names.php");
 
-function createRadioBtn($key,$val){
+function createRadioBtn($key,$val,$bool){
     echo '<label for="'.$key.'">'.$val;
-    echo '<input type= "radio" name="car_mark"." value="'.$key.'" id="'.$key.'" required>';
+    if($bool){
+        echo '<input type= "radio" name="car_mark"." value="'.$key.'" id="'.$key.'" required checked>';
+    }else{
+        echo '<input type= "radio" name="car_mark"." value="'.$key.'" id="'.$key.'" required>';
+    }
     echo '</label>';
 }
 
@@ -29,9 +33,15 @@ function createField($key,$val){
 function createRadioMenu(){
     $order_fields = $_SESSION['order_fields'];
     global $car_marks;
+    $cnt =0;
     if(array_key_exists('service_type',$_SESSION['order_fields'])){
         foreach($car_marks[$order_fields['service_type']] as $key => $val){
-            createRadioBtn($key,$val);
+            if($cnt == 0){
+                createRadioBtn($key,$val,true);
+            }else{
+                createRadioBtn($key,$val,false);
+            }
+            $cnt++;
         }
     }
 }

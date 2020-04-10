@@ -4,20 +4,17 @@
     session_start();
     
     }
-// error_reporting(0);
-// ini_set('display_errors', 0);
+error_reporting(0);
+ini_set('display_errors', 0);
 
 if(array_key_exists('auth__clear',$_SESSION)){
     if($_SESSION['auth__clear'] != true){
-        header("Location:../index.php");
+        exit(header("Location:../index.php"));
         die("Пожалуйста войдите в систему");
-        exit();
     }
 }else{
-    echo "<a href=","../index.php",">На главную</a>","<br>";
-   
-    header("Location:../index.php");
+    // echo "<a href=","../index.php",">На главную</a>","<br>";
+    exit(header("Location:../index.php"));
     die("Возникла ошибка");
-    exit();
 }
 ?>

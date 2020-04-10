@@ -1,6 +1,5 @@
-<?php
- session_start();
-?>
+<?php include("auth-check.php");?>
+<?php include("bill-data.php")?>
 <html>
 
 <head>
@@ -8,8 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <link href="../css/style.css" rel="stylesheet" type="text/css">
     <link href="../css/index.css" rel="stylesheet" type="text/css">
-    <?php include("auth-check.php");?>
-    <?php include("bill-data.php")?>
+
 </head>
 <form action="bill-data-handler.php" method="POST">
 
@@ -123,21 +121,25 @@
                     </table>
                 </td>
             </tr>
-            <tr>
-                <td valign="top" width="583" height="68" background="../images/row3.gif">
-                    <div style="margin-left:51px; margin-top:31px ">
-                        <a href="#"><img src="../images/p1.gif" border="0"></a>
-                        <img src="../images/spacer.gif" width="26" height="9">
-                        <a href="#"><img src="../images/p2.gif" border="0"></a>
-                        <img src="../images/spacer.gif" width="30" height="9">
-                        <a href="#"><img src="../images/p3.gif" border="0"></a>
-                        <img src="../images/spacer.gif" width="149" height="9">
-                        <a href="index-5.php"><img src="../images/copyright.gif" border="0"></a>
-                    </div>
-                </td>
-            </tr>
-        </table>
 </form>
+<tr>
+    <td valign="top" width="583" height="68" background="../images/row3.gif">
+        <div style="margin-left:51px; margin-top:31px ">
+            <a href="#"><img src="../images/p1.gif" border="0"></a>
+            <img src="../images/spacer.gif" width="26" height="9">
+            <a href="#"><img src="../images/p2.gif" border="0"></a>
+            <img src="../images/spacer.gif" width="30" height="9">
+            <a href="#"><img src="../images/p3.gif" border="0"></a>
+            <img src="../images/spacer.gif" width="149" height="9">
+            <a href="index-5.php"><img src="../images/copyright.gif" border="0"></a>
+            <form action="logout.php" method="post">
+                <input type="submit" value="Сменить пользователя">
+            </form>
+        </div>
+    </td>
+</tr>
+</table>
+
 </body>
 
 </html>
