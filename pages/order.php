@@ -1,4 +1,3 @@
-<?php include("auth-check.php") ?>
 <?php include("order-return.php")?>
 <!DOCTYPE html>
 <html>
@@ -15,6 +14,7 @@
 <body topmargin="0" bottommargin="0" rightmargin="0" leftmargin="0" background="../images/back_main.gif">
 
     <form method="POST" action="./order-data.php">
+    <fieldset style="border:unset;" <?php Enable()?>>
         <table cellpadding="0" cellspacing="0" border="0" align="center" width="583" height="614">
             <tr>
                 <td valign="top" width="583" height="208" background="../images/row1.gif">
@@ -160,6 +160,7 @@
                     </table>
                 </td>
             </tr>
+            </fieldset>
     </form>
     <tr>
         <td valign="top" width="583" height="68" background="../images/row3.gif">

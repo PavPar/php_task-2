@@ -8,3 +8,5 @@ if(array_key_exists('auth__clear',$_SESSION)){
         exit();
     }
 }
+?>
+<?php include("pages/index-auth.php") ?>

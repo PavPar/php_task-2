@@ -1,4 +1,3 @@
-<?php include("auth-check.php");?>
 <?php include("basket-data.php");?>
 <!DOCTYPE html>
 <html>

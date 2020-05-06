@@ -26,7 +26,7 @@ function createFlag($key,$val){
 
 function createField($key,$val){
     echo '<label for="'.$key.'">'.$val;
-    echo '<input min=1 type= "number" name="'.$key.'" value="'.$key.'" id="'.$key.'">';
+    echo '<input min=1 type="number" name="'.$key.'" value= 1 id="'.$key.'" required>';
     echo '</label>';
 }
 

@@ -1,12 +1,24 @@
 <?php 
 session_start();
+function CheckAuth(){
+    if(array_key_exists('auth__clear',$_SESSION)){
+        if($_SESSION['auth__clear'] != true){
+            return true;
+        }else{
+            return false;
+        }
+    }else{
+        return true;
+    }
+}
+if(!isset($_SESSION['order_fields']) || !isset($_SESSION['bill_fields']) || CheckAuth()){
+    // exit(header("Location:../index.php"));  
+    error_reporting(0);
+    ini_set('display_errors', 0);
+}else{
+    
 include("prices.php");
 include("field-names.php");
-
-
-if(!isset($_SESSION['order_fields']) || !isset($_SESSION['bill_fields'])){
-    exit(header("Location:./order.php"));  
-}
 $order_fields = $_SESSION['order_fields'];
 $bill_fields = $_SESSION['bill_fields'];
 $order = array_merge($order_fields,$bill_fields);
@@ -121,11 +133,12 @@ function OutputFile(){
         $result= $result . "Время аренды/лизинга : ".$order["car_time-hold"]
         . "\n";
     }
-    $result= $result . CalculatePrice();
+    $result= $result . "\n" . CalculatePrice();
     fwrite($handle , $result);
     return $result;
 }
 OutputFile();
 
+}
 
 ?>

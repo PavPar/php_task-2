@@ -1,9 +1,8 @@
 <?php
+include("auth-check.php");
 session_start();
 
-error_reporting(-1);
-ini_set('display_errors', 'On');
-set_error_handler("var_dump");
+error_reporting(0);
 
 function send_mail($msg)
 {
@@ -12,6 +11,20 @@ function send_mail($msg)
 
 if(isset($_SESSION['order_fields']) && isset($_SESSION['bill_fields'])){
     $filename="order.txt";
-    send_mail(file_get_contents($filename));
+    $type = send_mail(file_get_contents($filename));
+    if($type){
+        echo '<div style="margin-top:50vh; margin-left:45vw">';
+        echo "Сообщение отправлено успешно !<br><br>";
+        echo '<a style="text-align:center; margin-left:10%" href="../index.php",">На главную</a><br>';
+        echo "</div>";
+        unset($_SESSION['order_fields']);
+        unset($_SESSION['bill_fields']);
+    }else{
+        echo '<div style="margin-top:50vh; margin-left:45vw">';
+        echo "Произошла ошибка при отправке email :( <br><br>";
+        echo '<a style="text-align:center; margin-left:10%" href="../index.php",">На главную</a><br>';
+        echo "</div>";
+    }
+}else{
     exit(header("Location:../index.php"));
 }

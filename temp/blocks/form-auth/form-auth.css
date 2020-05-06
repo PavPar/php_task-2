@@ -1,0 +1,9 @@
+@import url(./__input/form-auth__input.css);
+@import url(./__label/form-auth__label.css);
+@import url(./__button/form-auth__button.css);
+
+.form-auth{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}

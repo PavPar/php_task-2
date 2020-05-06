@@ -7,6 +7,16 @@ if ( ! session_id() ) {
     
     }
 
+    function Enable(){
+        if(array_key_exists('auth__clear',$_SESSION)){
+            if($_SESSION['auth__clear'] != true){
+                echo "disabled";
+            }
+        }else{
+            echo "disabled";
+        }
+       
+    }
 
 function setFieldValue($key){
     if(isset($_SESSION['order_fields'])){

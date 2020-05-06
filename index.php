@@ -1,6 +1,4 @@
-<?php
- session_start();
-?>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -8,7 +6,7 @@
     <meta http-equiv="Content-Type" content="text/html">
     <link href="css/style.css" rel="stylesheet" type="text/css">
     <link href="css/index.css" rel="stylesheet" type="text/css">
-    <?php include("pages/index-auth.php") ?>
+    
 </head>
 
 <body topmargin="0" bottommargin="0" rightmargin="0" leftmargin="0" background="images/back_main.gif">
